@@ -1,0 +1,25 @@
+name: Upgrade dependencies
+
+on: workflow_dispatch
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: upgrade dependencies
+      run: yarn upgrade --latest --caret
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        title: "[Automated] upgrade dependencies"
+        commit-message: "[Automated] upgrade dependencies"
+        branch: "auto/deps-upgrade"
+        add-paths: |
+          package.json
+          yarn.lock
+        delete-branch: true
+        labels: |
+            automated pr
