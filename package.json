@@ -15,5 +15,6 @@
     "@knight-lab/timelinejs": "^3.9.3",
     "less": "^4.2.0",
     "vite": "^4.4.9"
-  }
+  },
+  "packageManager": "pnpm@latest"
 }

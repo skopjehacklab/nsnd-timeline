@@ -1,11 +1,11 @@
 ## Quick Start
 ```
-yarn
-yarn dev
+pnpm install
+pnpm dev
 ```
 
 ## Production
 ```
-yarn build
+pnpm build:production
 rsync -av dist/ …
 ```

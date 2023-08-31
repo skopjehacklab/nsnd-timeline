@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: upgrade dependencies
-      run: yarn upgrade --latest --caret
+      run: pnpm upgrade --latest
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
@@ -19,7 +19,7 @@ jobs:
         branch: "auto/deps-upgrade"
         add-paths: |
           package.json
-          yarn.lock
+          pnpm-lock.yaml
         delete-branch: true
         labels: |
             automated pr

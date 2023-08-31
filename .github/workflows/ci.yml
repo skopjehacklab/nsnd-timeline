@@ -12,12 +12,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - run: yarn install --frozen-lockfile
+    - uses: pnpm/action-setup@v2
+      with:
+        run_install: true
 
     - name: build production deploy artifacts
       env:
         VITE_GITHUB_ARCHIVE_URL: ${{ github.server_url }}/${{ github.repository }}/archive/${{ github.sha }}.zip
-      run: yarn build:production
+      run: pnpm build:production
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
